@@ -45,20 +45,22 @@ All six orphans are also ghosts; adopting them resolves both findings. [[transpo
 
 ## Dead Links — 13 targets (17 instances)
 
+Dead targets below are quoted in backticks so this report does not itself add live dead links to the graph.
+
 **Rename mismatch (highest confidence fix):**
-- [[How does the LLM Wiki pattern work?]] ×4 (in [[Persistent Wiki Artifact]], [[Source-First Synthesis]], [[Query-Time Retrieval]], [[log]]) — the page exists as `How does the LLM Wiki pattern work.md` (no `?`, stripped at file creation). Fix: retarget links with alias `[[How does the LLM Wiki pattern work|…?]]`.
+- `[[How does the LLM Wiki pattern work?]]` ×4 (in [[Persistent Wiki Artifact]], [[Source-First Synthesis]], [[Query-Time Retrieval]], [[log]]) — the page exists as `How does the LLM Wiki pattern work.md` (no `?`, stripped at file creation). Fix: retarget links with alias.
 
 **Missing pages referenced from session notes** (create stub or unlink):
-- [[Claude Canvas]], [[Claude Obsidian]], [[Karpathy LLM Wiki Pattern]], [[Rankenstein]] — all in [[2026-04-10-backlink-empire-session]]
+- `[[Claude Canvas]]`, `[[Claude Obsidian]]`, `[[Karpathy LLM Wiki Pattern]]`, `[[Rankenstein]]` — all in [[2026-04-10-backlink-empire-session]]
 - `[[E-commerce SEO]]` ×2 — in [[Claude SEO]] and [[2026-04-14-claude-seo-v190-session]]
-- [[AI Marketing Hub Cover Images Canvas]] — in [[overview]]; no such canvas exists
-- [[Three laws of motion]] — in [[Persistent Wiki Artifact]] (analogy link)
-- [[wikilinks]] — in [[cherry-picks]]
+- `[[AI Marketing Hub Cover Images Canvas]]` — in [[overview]]; no such canvas exists
+- `[[Three laws of motion]]` — in [[Persistent Wiki Artifact]] (analogy link)
+- `[[wikilinks]]` — in [[cherry-picks]]
 
 **Repo-file references using wikilink syntax** (should be markdown links or stubs):
-- [[mcp-setup]], [[wiki-cli]] — in [[transport-fallback]]
-- [[wiki-mode]], [[methodology-modes-guide]] — in [[methodology-modes]]
-- [[wiki-fold]], [[fold-template]] — in [[fold-k3-from-2026-04-23-to-2026-04-24-n8]]
+- `[[mcp-setup]]`, `[[wiki-cli]]` — in [[transport-fallback]]
+- `[[wiki-mode]]`, `[[methodology-modes-guide]]` — in [[methodology-modes]]
+- `[[wiki-fold]]`, `[[fold-template]]` — in [[fold-k3-from-2026-04-23-to-2026-04-24-n8]]
 These point at `skills/`/`docs/`/`_templates/` files outside the wiki graph. Suggest: convert to plain-text or relative markdown links.
 
 ## Frontmatter Gaps — 7 pages
