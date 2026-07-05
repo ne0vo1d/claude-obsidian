@@ -22,7 +22,7 @@ help:
 	@echo "  make setup-mode       Run bin/setup-mode.sh to pick a methodology mode (opt-in v1.8)"
 	@echo "  make clean-test-state Remove runtime lockfiles and tiling/embed caches"
 
-test: test-address test-tiling test-boundary test-bm25 test-retrieve test-lock test-concurrent test-mode test-contextual
+test: test-address test-tiling test-boundary test-bm25 test-retrieve test-lock test-concurrent test-mode test-contextual test-adopt test-staleness
 	@echo ""
 	@echo "All tests passed."
 
@@ -61,6 +61,14 @@ test-mode:
 test-contextual:
 	@echo "=== test_contextual_prefix.py ==="
 	@python3 tests/test_contextual_prefix.py
+
+test-adopt:
+	@echo "=== test_wiki_adopt.py ==="
+	@python3 tests/test_wiki_adopt.py
+
+test-staleness:
+	@echo "=== test_hot_staleness.sh ==="
+	@bash tests/test_hot_staleness.sh
 
 setup-dragonscale:
 	@bash bin/setup-dragonscale.sh

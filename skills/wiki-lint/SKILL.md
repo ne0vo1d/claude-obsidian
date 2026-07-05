@@ -39,6 +39,7 @@ Work through these in order:
 8. **Stale index entries**. Items in `wiki/index.md` pointing to renamed or deleted pages.
 9. **Address validity** (DragonScale Mechanism 2). For every page that has an `address:` frontmatter field, validate the format. See the **Address Validation** section below.
 10. **Semantic tiling** (DragonScale Mechanism 3, opt-in). Flag candidate duplicate pages (across all scanned types, not just concepts) via embedding cosine similarity. See the **Semantic Tiling** section below.
+11. **Ghost notes**. Hand-written pages (added directly in Obsidian, not via ingest/save) that are unregistered in the index, missing frontmatter, or orphaned. See the **Ghost-Note Adoption** section below.
 
 ---
 
@@ -357,6 +358,42 @@ See [[tiling-report-YYYY-MM-DD]] for the full pair listing.
 - No auto-merge. Duplicates are listed, never resolved.
 - Cache is incremental and model-scoped. Unchanged pages are not re-embedded.
 - Exit codes: `0` ok, `2` usage error, `3` cache corrupt, `4` scale hard-fail, `10` ollama unreachable, `11` model missing. Surface all of them; do not collapse into a single "unknown" bucket.
+
+---
+
+## Ghost-Note Adoption
+
+Notes the user writes directly in Obsidian never pass through ingest/save, so they miss the integration those flows guarantee: index registration, frontmatter, inbound links. From the wiki's navigation layer (hot → index → drill-down) they are invisible — ghosts. The SessionStart hook surfaces a one-line count (`GHOST_NOTES: N …`); this section is the adoption workflow it points at.
+
+Detect:
+
+```bash
+python3 scripts/wiki-adopt.py scan                  # human-readable, grouped by page
+python3 scripts/wiki-adopt.py scan --format json    # machine-readable for this skill
+python3 scripts/wiki-adopt.py scan --quiet          # hook mode: one line iff ghosts exist
+```
+
+Issue flags per page: `unregistered` (no wikilink from `index.md` or any `_index.md`), `no_frontmatter`, `orphan` (zero inbound wikilinks from any other page). Exit codes: `0` success (even with ghosts), `2` usage, `3` no `wiki/` folder.
+
+Adopt each ghost — this is LLM work, the script only detects:
+
+1. **Read the note.** Infer its type (concept / entity / source / session / meta) from content.
+2. **Add frontmatter** if missing: `type`, `title`, `created` (file mtime), `updated`, `tags`, `status: developing`. Preserve the user's body text byte-for-byte — adoption never rewrites their prose.
+3. **Weave inbound links.** Find 1-3 genuinely related pages and add a `[[Ghost Note]]` reference where it naturally fits (a related-section line, not forced mid-prose).
+4. **Register it**: add to `wiki/index.md` under the right section, and the domain `_index.md` if one applies. Route via `python3 scripts/wiki-mode.py route <type> "<name>"` if the vault has a methodology mode.
+5. **Log the adoption** in `wiki/log.md` — new entry at the TOP, one entry for the batch, listing adopted pages.
+
+Adoption respects locks like every other write: `wiki-lock acquire` / `release` around each page mutation.
+
+Report ghosts under their own section in the lint report:
+
+```markdown
+## Ghost Notes (hand-written, unintegrated)
+- [[Page Name]]: unregistered, no_frontmatter. Adopted: type=concept, linked from [[Related]], registered in index.
+- [[Other Page]]: orphan. Needs review: content unclear, asked user.
+```
+
+A note that is *deliberately* standalone (user says so) gets `status: standalone` in frontmatter — the scanner still lists it, but mark it "acknowledged" in the report rather than re-adopting every run.
 
 ---
 

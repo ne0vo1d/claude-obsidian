@@ -2,6 +2,21 @@
 
 All notable changes to claude-obsidian. Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). Versioning: [SemVer](https://semver.org/).
 
+## [Unreleased]
+
+Two small feedback loops that close failure modes observed in the wild on 2026-07-05: hand-written notes were invisible to the wiki's navigation layer ("ghost notes"), and `wiki/hot.md` silently drifted 7 weeks / 5 minor versions behind HEAD.
+
+### Added
+
+- **Ghost-note detector** (`scripts/wiki-adopt.py`). Finds wiki pages that are `unregistered` (no wikilink from `index.md`/`_index.md`), `no_frontmatter`, or `orphan` (zero inbound links). Text/JSON output plus a `--quiet` hook mode that prints one summary line only when ghosts exist. `--vault` override for hermetic testing. New `§Ghost-Note Adoption` workflow in `skills/wiki-lint/SKILL.md` (lint check #11) describes the LLM-side adoption: frontmatter, link weaving, index registration — never rewriting the user's prose.
+- **Hot-cache staleness sentinel** (`scripts/check-hot-staleness.sh`). Compares `hot.md`'s `updated:` frontmatter against the latest git commit date; emits `HOT_CACHE_STALE` when drift exceeds `--max-days` (default 7). Silent on every failure path (no hot.md, no git, unparseable date) — hooks never break session start.
+- Both wired into the `SessionStart` hook (`hooks/hooks.json`), after the hot.md cat: the session opens knowing whether its memory is stale and whether unintegrated notes exist.
+- Tests: `tests/test_wiki_adopt.py` (17 assertions) + `tests/test_hot_staleness.sh` (13 assertions); `make test-adopt` / `make test-staleness` targets added to the default suite.
+
+### Fixed
+
+- **BSD `wc` padding broke `make test` on macOS** (`tests/test_allocate_address.sh`, `tests/test_wiki_lock.sh`, `tests/test_concurrent_write.sh`). macOS `wc -l` left-pads its output, so unquoted string compares like `"10" = "      10"` failed. All four count assertions now pipe through `tr -d '[:space:]'`. Pre-existing; surfaced while wiring the new test targets.
+
 ## [1.9.2] - 2026-05-27 (prompt-cache hardening + path-handling robustness)
 
 Ports Anthropic prompt-caching best practices into the **one** place the plugin calls the Anthropic API directly: tier-1 contextual-prefix generation in `scripts/contextual-prefix.py`. Verified by full-repo sweep that `cache_control` and the Anthropic API surface exist nowhere else (incl. `claude-canvas/`). No change to retrieval output — API payload shape + observability only.
