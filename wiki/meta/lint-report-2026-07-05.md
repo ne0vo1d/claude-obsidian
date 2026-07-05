@@ -98,3 +98,11 @@ Skipped: ollama not reachable (exit 10). Start ollama and re-run `./scripts/tili
 ## Stale Claims
 
 None flagged this run. [[hot]] was fully reconciled against git history earlier today (v1.7.1 → v1.9.2 drift closed), which was the largest stale-claim surface.
+
+## Fix Addendum (same day, user-approved items 1-4)
+
+- **Ghosts 11 → 0**: all adopted; index gained References / Session Archive / Folds sections. Orphans 6 → 0.
+- **Frontmatter gaps 7 → 0**: created/updated/tags filled from git history + filename dates; body prose untouched.
+- **Addresses**: c-000003/4/5 backfilled to the three M4 concept pages; c-000006/7 assigned to [[transport-fallback]] and [[methodology-modes]] (newly post-rollout once `created:` was added). Counter peek now 8; address_map updated.
+- **`?`-links**: 3 frontmatter links retargeted; 1 mechanical alias repair in the 2026-04-24 log entry (rendered text unchanged — disclosed append-only exception).
+- Remaining (deferred to review): missing-page dead links, repo-file wikilinks, 29 empty sections, tiling re-run once ollama is up.
