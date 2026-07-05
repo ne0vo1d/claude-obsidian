@@ -58,7 +58,9 @@ Any skill that mutates a vault file should follow this pattern at the top:
 transport = read_json(".vault-meta/transport.json")  # auto-created on first run
 match transport["preferred"]:
     case "cli":
-        result = bash(f'obsidian-cli {operation} "{vault_root}" "{path}"')
+        # Named params, active vault (no positional vault_root). See skills/wiki-cli/SKILL.md
+        # for the full recipe set; e.g. read → path=, search → query=, write → create ... overwrite.
+        result = bash(f'obsidian-cli {operation} path="{path}"')
     case "mcp-obsidian" | "mcpvault":
         result = mcp_call(operation, path)
     case "filesystem" | _:
