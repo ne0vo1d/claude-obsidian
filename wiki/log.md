@@ -32,7 +32,7 @@ Parse recent entries: `grep "^## \[" wiki/log.md | head -10`
 - Frontmatter gaps filled on 7 pages (created/updated/tags from git history + filename dates; body prose untouched)
 - Addresses backfilled: [[Persistent Wiki Artifact]] c-000003, [[Query-Time Retrieval]] c-000004, [[Source-First Synthesis]] c-000005 (the v1.6 M4 orchestrator backfill that never ran); `.raw/.manifest.json` address_map updated
 - Link repair: 4× `[[How does the LLM Wiki pattern work?]]` retargeted to the actual file (no `?`); includes one mechanical alias fix inside the 2026-04-24 validation entry below — rendered text unchanged, target corrected (disclosed exception to append-only)
-- Deferred for review: dead links to never-created pages ([[Rankenstein]] etc.), wikilinks pointing at repo files, 29 empty sections
+- Deferred for review: dead links to never-created pages (`[[Rankenstein]]` etc.), wikilinks pointing at repo files, 29 empty sections
 - Detection: `scripts/wiki-adopt.py` (PR #2, first production run)
 
 ## [2026-07-05] save | Hot-cache reconciliation + fork setup + Obsidian CLI transport
