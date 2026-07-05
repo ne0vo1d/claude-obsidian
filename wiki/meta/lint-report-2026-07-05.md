@@ -50,7 +50,7 @@ All six orphans are also ghosts; adopting them resolves both findings. [[transpo
 
 **Missing pages referenced from session notes** (create stub or unlink):
 - [[Claude Canvas]], [[Claude Obsidian]], [[Karpathy LLM Wiki Pattern]], [[Rankenstein]] — all in [[2026-04-10-backlink-empire-session]]
-- [[E-commerce SEO]] ×2 — in [[Claude SEO]] and [[Rankenstein SEO Suite]]
+- `[[E-commerce SEO]]` ×2 — in [[Claude SEO]] and [[2026-04-14-claude-seo-v190-session]]
 - [[AI Marketing Hub Cover Images Canvas]] — in [[overview]]; no such canvas exists
 - [[Three laws of motion]] — in [[Persistent Wiki Artifact]] (analogy link)
 - [[wikilinks]] — in [[cherry-picks]]
