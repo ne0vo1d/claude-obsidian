@@ -88,17 +88,16 @@ flatpak run md.obsidian.Obsidian --cli --version
 
 **Common operations:**
 ```bash
-# List all notes in a folder
-obsidian-cli list /path/to/vault wiki/
+# Named params, active vault (add vault="<name>" to target another). No stdin.
 
 # Read a note
-obsidian-cli read /path/to/vault wiki/index.md
+obsidian-cli read path="wiki/index.md"
 
-# Create or update a note
-obsidian-cli write /path/to/vault wiki/new-note.md < content.md
+# Create or update a note (content= only; prefer filesystem Write for large bodies)
+obsidian-cli create path="wiki/new-note.md" content="…" overwrite
 
 # Search notes by content
-obsidian-cli search /path/to/vault "query term"
+obsidian-cli search query="query term"
 ```
 
 **Why prefer this**:
