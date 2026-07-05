@@ -6,6 +6,8 @@ tags:
   - methodology
   - wiki-mode
 status: evergreen
+created: 2026-05-17
+updated: 2026-05-17
 related:
   - "[[methodology-modes-guide]]"
   - "[[wiki-mode]]"

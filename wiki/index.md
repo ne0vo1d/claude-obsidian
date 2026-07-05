@@ -88,6 +88,33 @@ Navigation: [[overview]] | [[log]] | [[hot]] | [[dashboard]] | [[Wiki Map]] | [[
 
 ---
 
+## References
+
+- [[transport-fallback]] — transport fallback decision tree (CLI → MCP → filesystem); consulted by six skills before any vault mutation
+- [[methodology-modes]] — quick decision tree for LYT / PARA / Zettelkasten / Generic vault modes
+
+---
+
+## Session Archive
+
+- [[full-audit-and-system-setup-session]] — 2026-04-07 | full system audit + setup session
+- [[claude-obsidian-v1.2.0-release-session]] — 2026-04-07 | v1.2.0 release session record
+- [[claude-obsidian-v1.4-release-session]] — 2026-04-08 | v1.4 release session record
+- [[2026-04-10-backlink-empire-session]] — backlink-empire strategy session
+- [[2026-04-24-v1.6.0-release-session]] — v1.6.0 closeout + release notes session
+- [[boundary-frontier-2026-04-24]] — first DragonScale M4 boundary-frontier snapshot
+- [[tiling-report-2026-04-24]] — first DragonScale M3 semantic tiling report (0 errors, 15 review pairs)
+- [[retrieval-benchmark-v1.7]] — 50-query benchmark corpus behind the v1.7.0 audit
+- [[lint-report-2026-07-05]] — first lint since 2026-04-24; 11 ghosts adopted, addresses backfilled
+
+---
+
+## Folds
+
+- [[fold-k3-from-2026-04-23-to-2026-04-24-n8]] — first real fold: 8 log entries, 2026-04-23 → 2026-04-24 (DragonScale M1)
+
+---
+
 ## Domains
 
 <!-- Add domain entries here after scaffold -->

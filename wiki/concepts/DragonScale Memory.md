@@ -22,6 +22,9 @@ related:
   - "[[Compounding Knowledge]]"
   - "[[Hot Cache]]"
   - "[[concepts/_index]]"
+  - "[[fold-k3-from-2026-04-23-to-2026-04-24-n8]]"
+  - "[[tiling-report-2026-04-24]]"
+  - "[[boundary-frontier-2026-04-24]]"
 sources:
 ---
 

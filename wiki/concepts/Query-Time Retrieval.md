@@ -8,8 +8,9 @@ tags:
   - retrieval
   - llm-wiki
 status: developing
+address: c-000004
 related:
-  - "[[How does the LLM Wiki pattern work?]]"
+  - "[[How does the LLM Wiki pattern work]]"
   - "[[Wiki vs RAG]]"
   - "[[LLM Wiki Pattern]]"
   - "[[Persistent Wiki Artifact]]"

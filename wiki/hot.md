@@ -19,7 +19,9 @@ Navigation: [[index]] | [[log]] | [[overview]]
 
 ## Last Updated
 
-**2026-07-05: hot cache reconciled after ~7 weeks of drift.** The previous entry stopped at v1.7.1 (2026-05-17, local/unpushed). Since then the project shipped all the way to **v1.9.2 public** and beyond. This session also began work on a personal fork.
+**2026-07-05 (late): first lint since 2026-04-24 + ghost adoption batch.** Report: [[lint-report-2026-07-05]]. All 11 ghost notes adopted (new index sections: References, Session Archive, Folds), 7 frontmatter gaps filled, 3 DragonScale addresses backfilled (c-000003/4/5 — the v1.6 M4 orchestrator backfill that never ran), 4 broken `?`-links to [[How does the LLM Wiki pattern work]] repaired. Deferred for review: dead links to never-created pages, repo-file wikilinks, 29 empty sections. Tiling skipped (ollama down). Detection ran on `scripts/wiki-adopt.py` from PR #2 (`feat/ghost-notes-and-staleness-sentinel`, open on the fork — also adds the hot-staleness sentinel; verifier: SHIP).
+
+Earlier same day: hot cache reconciled after ~7 weeks of drift (previous entry stopped at v1.7.1; project had shipped to **v1.9.2 public**). Fork work began.
 
 ## Release history since v1.7.1
 

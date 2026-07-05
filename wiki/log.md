@@ -25,6 +25,16 @@ Parse recent entries: `grep "^## \[" wiki/log.md | head -10`
 
 ---
 
+## [2026-07-05] lint | First lint since 2026-04-24 + ghost-note adoption batch
+- Type: lint + adoption
+- Report: [[lint-report-2026-07-05]] (49 pages; 11 ghosts, 13 true dead-link targets, 7 frontmatter gaps, 3 address errors; tiling skipped, ollama down)
+- Adopted (registered in [[index]], frontmatter completed): [[transport-fallback]], [[methodology-modes]], [[full-audit-and-system-setup-session]], [[claude-obsidian-v1.2.0-release-session]], [[claude-obsidian-v1.4-release-session]], [[2026-04-10-backlink-empire-session]], [[2026-04-24-v1.6.0-release-session]], [[boundary-frontier-2026-04-24]], [[tiling-report-2026-04-24]], [[retrieval-benchmark-v1.7]], [[fold-k3-from-2026-04-23-to-2026-04-24-n8]] — new index sections: References, Session Archive, Folds
+- Frontmatter gaps filled on 7 pages (created/updated/tags from git history + filename dates; body prose untouched)
+- Addresses backfilled: [[Persistent Wiki Artifact]] c-000003, [[Query-Time Retrieval]] c-000004, [[Source-First Synthesis]] c-000005 (the v1.6 M4 orchestrator backfill that never ran); `.raw/.manifest.json` address_map updated
+- Link repair: 4× `[[How does the LLM Wiki pattern work?]]` retargeted to the actual file (no `?`); includes one mechanical alias fix inside the 2026-04-24 validation entry below — rendered text unchanged, target corrected (disclosed exception to append-only)
+- Deferred for review: dead links to never-created pages ([[Rankenstein]] etc.), wikilinks pointing at repo files, 29 empty sections
+- Detection: `scripts/wiki-adopt.py` (PR #2, first production run)
+
 ## [2026-07-05] save | Hot-cache reconciliation + fork setup + Obsidian CLI transport
 - Type: session (environment setup + doc fix + wiki maintenance)
 - Trigger: `/wiki` re-run surfaced that hot.md was ~7 weeks stale (stopped at v1.7.1; repo now at v1.9.2 public).
@@ -59,7 +69,7 @@ Parse recent entries: `grep "^## \[" wiki/log.md | head -10`
 - Scope: six-test menu the user approved. Codex gpt-5.4 for T1/T4/T6 (sub-agent delegation); chair for T0/T2/T3 (one-shot shell) and all integration (index, log, hot, commit).
 - Style: all new content uses colons or parens instead of em-dashes. Pre-existing em-dashes in index entries and wiki/concepts/_index.md left as-is (clean-room boundary; deferred to F-slice style pass).
 - Tests still green: `make test` passes (74+ assertions).
-- Integration: chair added the 3 new concepts to `wiki/index.md` and `wiki/concepts/_index.md` with colon-style descriptions so the fresh pages are discoverable. The cluster extends `[[How does the LLM Wiki pattern work?]]` and cross-references `[[LLM Wiki Pattern]]`.
+- Integration: chair added the 3 new concepts to `wiki/index.md` and `wiki/concepts/_index.md` with colon-style descriptions so the fresh pages are discoverable. The cluster extends `[[How does the LLM Wiki pattern work|How does the LLM Wiki pattern work?]]` and cross-references `[[LLM Wiki Pattern]]`.
 - Next recommended slice: either (G) commit this test batch and declare v1.6.0 validated, or (H) run a second fold k=3 now that 8 newer entries exist above this one and close the hierarchical-fold-not-yet-supported loop in a future phase.
 
 ## [2026-04-24] save | v1.6.0 closeout (Teams, chair-led)

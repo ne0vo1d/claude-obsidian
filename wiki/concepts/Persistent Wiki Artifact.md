@@ -8,8 +8,9 @@ tags:
   - knowledge-management
   - agent-memory
 status: developing
+address: c-000003
 related:
-  - "[[How does the LLM Wiki pattern work?]]"
+  - "[[How does the LLM Wiki pattern work]]"
   - "[[LLM Wiki Pattern]]"
   - "[[Compounding Knowledge]]"
   - "[[Source-First Synthesis]]"
