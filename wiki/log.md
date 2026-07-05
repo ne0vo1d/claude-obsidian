@@ -25,6 +25,15 @@ Parse recent entries: `grep "^## \[" wiki/log.md | head -10`
 
 ---
 
+## [2026-07-05] save | Hot-cache reconciliation + fork setup + Obsidian CLI transport
+- Type: session (environment setup + doc fix + wiki maintenance)
+- Trigger: `/wiki` re-run surfaced that hot.md was ~7 weeks stale (stopped at v1.7.1; repo now at v1.9.2 public).
+- Environment: Homebrew Python 3.14 + Bash 5.3 + `flock` installed; PATH fixed via new `~/.zprofile` (`brew shellenv`). Obsidian 1.12.7 CLI symlinked to `~/.local/bin`, in-app CLI toggle enabled; `.vault-meta/transport.json` now `preferred: cli`, verified end-to-end.
+- Fork: repo forked to `ne0vo1d/claude-obsidian`; remotes rewired (`origin`→fork, `upstream`→AgriciDaniel); `gh` authed as ne0vo1d.
+- Doc fix: branch `fix/obsidian-cli-syntax` (commit `3d76b75`) corrects broken positional CLI recipes → named-param syntax across 7 skill files + `wiki/references/transport-fallback.md`. Verifier: HOLD-FIX-FIRST → all closed. **PR #1 into fork `main` — OPEN, not merged.**
+- Pages updated: [[hot]] (full reconcile v1.7.1→v1.9.2), [[log]] (this entry).
+- Key insight: the vault's own memory drifted 7 weeks / 5 minor versions behind the code — the exact failure the hot-cache is meant to prevent when sessions skip the maintenance step.
+
 ## [2026-04-24] save | v1.6.0 public release notes (Teams, Karpathy-style)
 - Type: release doc + visual assets
 - Locations (new): `docs/releases/v1.6.0.md` (346 lines, 6 sections, Karpathy-style prose), `wiki/meta/dragonscale-mechanism-overview.svg` (4-mechanism diagram with shared .vault-meta/ gate), `wiki/meta/dragonscale-6-test-flow.svg` (validation timeline), `wiki/meta/dragonscale-frontier-graph.svg` (M4 candidate + 3 filed pages)
