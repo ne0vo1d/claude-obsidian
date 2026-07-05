@@ -2,9 +2,9 @@
 
 All notable changes to claude-obsidian. Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). Versioning: [SemVer](https://semver.org/).
 
-## [Unreleased]
+## [1.10.0] - 2026-07-06 (ne0vo1d fork: vault-health feedback loops + CLI syntax fixes)
 
-Two small feedback loops that close failure modes observed in the wild on 2026-07-05: hand-written notes were invisible to the wiki's navigation layer ("ghost notes"), and `wiki/hot.md` silently drifted 7 weeks / 5 minor versions behind HEAD.
+First release cut on the ne0vo1d fork (marketplace renamed `agricidaniel-claude-obsidian` → `ne0vo1d-claude-obsidian`). Two small feedback loops that close failure modes observed in the wild on 2026-07-05: hand-written notes were invisible to the wiki's navigation layer ("ghost notes"), and `wiki/hot.md` silently drifted 7 weeks / 5 minor versions behind HEAD. Also folds in the Obsidian 1.12.7 CLI named-param syntax corrections (PR #1).
 
 ### Added
 
